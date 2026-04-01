@@ -14,20 +14,20 @@
 | Skill | 说明 | 适用人群 |
 |------|------|---------|
 | **[vocabulary-novel](skills/vocabulary-novel/)** | 词汇小说生成器 | 雅思考生、英语学习者 |
-| **weather** (coming soon) | 天气查询 | 所有人 |
 
 ### 🎬 创作类
 
 | Skill | 说明 | 适用人群 |
 |------|------|---------|
 | **[douyin-script](skills/douyin-script/)** | 抖音爆款口播脚本 | 自媒体创作者 |
-| **summarize** (coming soon) | 内容摘要 | 学生、上班族 |
+| **[summarize](skills/summarize/)** | 内容摘要工具 | 学生、上班族、研究者 |
 
 ### 🔍 工具类
 
 | Skill | 说明 | 适用人群 |
 |------|------|---------|
 | **tavily-search** (coming soon) | AI 优化搜索 | 研究者、写作者 |
+| **weather** (coming soon) | 天气查询 | 所有人 |
 
 ---
 
@@ -51,8 +51,9 @@ npm install -g openclaw
 openclaw-skills/
 ├── README.md
 ├── skills/
-│   ├── vocabulary-novel/
-│   └── douyin-script/
+│   ├── vocabulary-novel/      # 雅思词汇小说
+│   ├── douyin-script/         # 抖音口播脚本
+│   └── summarize/             # 内容摘要
 └── ...
 ```
 
@@ -71,3 +72,5 @@ MIT License
 ---
 
 **🐕 金毛管家 & 嘻嘻公主 联合制作**
+
+*让 AI 技能更简单、更实用！* 💚
