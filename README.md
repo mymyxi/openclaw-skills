@@ -22,12 +22,19 @@
 | **[douyin-script](skills/douyin-script/)** | 抖音爆款口播脚本 | 自媒体创作者 |
 | **[summarize](skills/summarize/)** | 内容摘要工具 | 学生、上班族、研究者 |
 
-### 🔍 工具类
+### 🌟 生活类
 
 | Skill | 说明 | 适用人群 |
 |------|------|---------|
-| **tavily-search** (coming soon) | AI 优化搜索 | 研究者、写作者 |
-| **weather** (coming soon) | 天气查询 | 所有人 |
+| **[daily-energy](skills/daily-energy/)** | 每日能量指南 | 所有人 |
+| **[city-weekly-guide](skills/city-weekly-guide/)** | 城市折扣周刊 | 城市生活者 |
+
+### 🔍 工具类（coming soon）
+
+| Skill | 说明 | 适用人群 |
+|------|------|---------|
+| tavily-search | AI 优化搜索 | 研究者、写作者 |
+| weather | 天气查询 | 所有人 |
 
 ---
 
@@ -41,7 +48,7 @@ npm install -g openclaw
 
 ### 使用技能
 
-每个技能都有独立的 `SKILL.md` 和 `README.md` 文档，查看对应目录了解使用方法。
+每个技能都有独立的 `SKILL.md` 和 `README.md` 文档。
 
 ---
 
@@ -53,7 +60,9 @@ openclaw-skills/
 ├── skills/
 │   ├── vocabulary-novel/      # 雅思词汇小说
 │   ├── douyin-script/         # 抖音口播脚本
-│   └── summarize/             # 内容摘要
+│   ├── summarize/             # 内容摘要
+│   ├── daily-energy/          # 每日能量
+│   └── city-weekly-guide/     # 城市折扣周刊
 └── ...
 ```
 
