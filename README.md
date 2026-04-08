@@ -13,28 +13,22 @@
 
 | Skill | 说明 | 适用人群 |
 |------|------|---------|
-| **[vocabulary-novel](skills/vocabulary-novel/)** | 词汇小说生成器 | 雅思考生、英语学习者 |
+| **[vocabulary-novel](vocabulary-novel/)** | 英语词汇小说生成器，单词融入故事自然记忆 | 雅思/四六级/托福考生 |
 
 ### 🎬 创作类
 
 | Skill | 说明 | 适用人群 |
 |------|------|---------|
-| **[douyin-script](skills/douyin-script/)** | 抖音爆款口播脚本 | 自媒体创作者 |
-| **[summarize](skills/summarize/)** | 内容摘要工具 | 学生、上班族、研究者 |
+| **[douyin-script](douyin-script/)** | 抖音爆款口播脚本，45-60秒强钩子格式 | 自媒体创作者 |
+| **[summarize](summarize/)** | 网页/PDF/视频内容摘要 | 学生、上班族、研究者 |
+| **[ppt-generator](ppt-generator/)** | AI 生成专业 HTML 演示文稿，支持汇报版和演讲版 | 职场人士、创业者、学生 |
 
 ### 🌟 生活类
 
 | Skill | 说明 | 适用人群 |
 |------|------|---------|
-| **[daily-energy](skills/daily-energy/)** | 每日能量指南 | 所有人 |
-| **[city-weekly-guide](skills/city-weekly-guide/)** | 城市折扣周刊 | 城市生活者 |
-
-### 🔍 工具类（coming soon）
-
-| Skill | 说明 | 适用人群 |
-|------|------|---------|
-| tavily-search | AI 优化搜索 | 研究者、写作者 |
-| weather | 天气查询 | 所有人 |
+| **[daily-energy](daily-energy/)** | 每日能量运势指南，基于八字节气 | 所有人 |
+| **[city-weekly-guide](city-weekly-guide/)** | 任意城市购物/美食/游玩折扣周报 | 城市生活者 |
 
 ---
 
@@ -48,7 +42,11 @@ npm install -g openclaw
 
 ### 使用技能
 
-每个技能都有独立的 `SKILL.md` 和 `README.md` 文档。
+```bash
+git clone https://github.com/mymyxi/openclaw-skills.git ~/.openclaw/workspace/skills
+```
+
+每个技能目录下都有 `SKILL.md` 说明文档。
 
 ---
 
@@ -57,13 +55,12 @@ npm install -g openclaw
 ```
 openclaw-skills/
 ├── README.md
-├── skills/
-│   ├── vocabulary-novel/      # 雅思词汇小说
-│   ├── douyin-script/         # 抖音口播脚本
-│   ├── summarize/             # 内容摘要
-│   ├── daily-energy/          # 每日能量
-│   └── city-weekly-guide/     # 城市折扣周刊
-└── ...
+├── vocabulary-novel/      # 英语词汇小说
+├── douyin-script/         # 抖音口播脚本
+├── summarize/             # 内容摘要
+├── daily-energy/          # 每日能量
+├── city-weekly-guide/     # 城市折扣周刊
+└── ppt-generator/         # AI PPT 生成器
 ```
 
 ---
@@ -77,9 +74,3 @@ openclaw-skills/
 ## 📄 许可证
 
 MIT License
-
----
-
-**🐕 金毛管家 & 嘻嘻公主 联合制作**
-
-*让 AI 技能更简单、更实用！* 💚
