@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 生成 PPT - 演示文稿</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===========================================
+           NEON CYBER - AI GENERATED PRESENTATION
+           =========================================== */
+        
+        :root {
+            --bg-deep: #0a0f1c;
+            --bg-gradient: linear-gradient(135deg, #0a0f1c 0%, #0d1528 50%, #0a0f1c 100%);
+            --accent-cyan: #00ffcc;
+            --accent-magenta: #ff00aa;
+            --accent-blue: #00ccff;
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --text-muted: rgba(255, 255, 255, 0.5);
+            --glow-cyan: 0 0 20px rgba(0, 255, 204, 0.5), 0 0 40px rgba(0, 255, 204, 0.3);
+            --glow-magenta: 0 0 20px rgba(255, 0, 170, 0.5), 0 0 40px rgba(255, 0, 170, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            overflow-x: hidden;
+            background: var(--bg-deep);
+            font-family: 'Noto Sans SC', 'Clash Display', sans-serif;
+            color: var(--text-primary);
+        }
+
+        html {
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+
+        /* Particles Background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float 15s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* Grid Pattern */
+        .grid-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 204, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 204, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Slide Base */
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
+            overflow: hidden;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 2;
+        }
+
+        .slide-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: clamp(2rem, 5vw, 5rem);
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Navigation */
+        .nav-dots {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            z-index: 100;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dot:hover,
+        .nav-dot.active {
+            background: var(--accent-cyan);
+            box-shadow: var(--glow-cyan);
+            border-color: var(--accent-cyan);
+        }
+
+        /* Typography */
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-shadow: var(--glow-cyan);
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--accent-cyan);
+        }
+
+        h3 {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            line-height: 1.8;
+            color: var(--text-secondary);
+            max-width: 800px;
+        }
+
+        /* Accent Elements */
+        .accent-line {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
+            margin: 1.5rem 0;
+            border-radius: 2px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 255, 204, 0.1);
+            border: 1px solid var(--accent-cyan);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Feature Cards */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1000px;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 255, 204, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: var(--accent-cyan);
+            box-shadow: var(--glow-cyan);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: var(--accent-cyan);
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* List Styles */
+        .feature-list {
+            list-style: none;
+            text-align: left;
+            max-width: 700px;
+            margin: 2rem auto;
+        }
+
+        .feature-list li {
+            padding: 1rem 0;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            border-bottom: 1px solid rgba(0, 255, 204, 0.1);
+        }
+
+        .feature-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent-cyan);
+            font-size: 1.2rem;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: transparent;
+            border: 2px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: var(--accent-cyan);
+            color: var(--bg-deep);
+            box-shadow: var(--glow-cyan);
+        }
+
+        /* Slide Number */
+        .slide-number {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-family: 'Clash Display', monospace;
+        }
+
+        .slide-number span {
+            color: var(--accent-cyan);
+            font-weight: 700;
+        }
+
+        /* Keyboard Hint */
+        .keyboard-hint {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            z-index: 100;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: var(--glow-cyan); }
+            50% { text-shadow: 0 0 30px rgba(0, 255, 204, 0.8), 0 0 60px rgba(0, 255, 204, 0.5); }
+        }
+
+        .glow-text {
+            animation: glow 3s infinite;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-dots {
+                right: 1rem;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="particles" id="particles"></div>
+    <div class="grid-pattern"></div>
+
+    <!-- Navigation Dots -->
+    <div class="nav-dots">
+        <div class="nav-dot active" data-slide="0"></div>
+        <div class="nav-dot" data-slide="1"></div>
+        <div class="nav-dot" data-slide="2"></div>
+        <div class="nav-dot" data-slide="3"></div>
+        <div class="nav-dot" data-slide="4"></div>
+        <div class="nav-dot" data-slide="5"></div>
+        <div class="nav-dot" data-slide="6"></div>
+    </div>
+
+    <!-- Slide 1: Cover -->
+    <section class="slide" id="slide-0">
+        <div class="slide-number">01 / 07</div>
+        <div class="slide-content" style="text-align: center;">
+            <div class="badge">AI 演示文稿生成</div>
+            <h1 class="glow-text">用 AI 生成 PPT</h1>
+            <div class="accent-line" style="margin: 1.5rem auto;"></div>
+            <p style="font-size: 1.3rem; max-width: 600px;">
+                告别繁琐排版，让 AI 帮你打造专业级演示文稿<br>
+                <span style="color: var(--accent-cyan);">零设计经验 · 一键生成 · 赛博科技风</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Slide 2: Problem -->
+    <section class="slide" id="slide-1">
+        <div class="slide-number">02 / 07</div>
+        <div class="slide-content">
+            <div class="badge">痛点分析</div>
+            <h2>传统 PPT 制作的困境</h2>
+            <div class="accent-line"></div>
+            <ul class="feature-list">
+                <li>花费 80% 时间调整字体、颜色、对齐</li>
+                <li>模板千篇一律，缺乏个性</li>
+                <li>设计技能门槛高，非设计师难以做出专业效果</li>
+                <li>内容修改后需要重新排版，效率低下</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Slide 3: Solution -->
+    <section class="slide" id="slide-2">
+        <div class="slide-number">03 / 07</div>
+        <div class="slide-content">
+            <div class="badge">解决方案</div>
+            <h2>AI 生成 PPT 的优势</h2>
+            <div class="accent-line"></div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>极速生成</h3>
+                    <p>输入内容，AI 自动排版，几分钟完成专业级演示文稿</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>风格多样</h3>
+                    <p>12+ 精心设计的视觉风格，避免"AI 烂大街"审美</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>灵活修改</h3>
+                    <p>内容更新自动适配布局，无需手动重排</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 4: How It Works -->
+    <section class="slide" id="slide-3">
+        <div class="slide-number">04 / 07</div>
+        <div class="slide-content">
+            <div class="badge">工作流程</div>
+            <h2>三步生成专业 PPT</h2>
+            <div class="accent-line"></div>
+            <ul class="feature-list">
+                <li><strong style="color: var(--accent-cyan);">Step 1:</strong> 输入内容 — 描述你的主题、要点和想要传达的信息</li>
+                <li><strong style="color: var(--accent-cyan);">Step 2:</strong> 选择风格 — 从视觉预览中挑选喜欢的风格，而非抽象描述</li>
+                <li><strong style="color: var(--accent-cyan);">Step 3:</strong> 获取成品 — 生成单文件 HTML，可直接浏览器打开或部署分享</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Slide 5: Tech Stack -->
+    <section class="slide" id="slide-4">
+        <div class="slide-number">05 / 07</div>
+        <div class="slide-content">
+            <div class="badge">技术特点</div>
+            <h2>零依赖 · 纯前端</h2>
+            <div class="accent-line"></div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📄</div>
+                    <h3>单文件输出</h3>
+                    <p>HTML + CSS + JS 全部内联，一个文件搞定所有</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>响应式设计</h3>
+                    <p>自动适配手机、平板、电脑各种屏幕尺寸</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>一键部署</h3>
+                    <p>支持 Vercel 一键部署，生成永久分享链接</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 6: Use Cases -->
+    <section class="slide" id="slide-5">
+        <div class="slide-number">06 / 07</div>
+        <div class="slide-content">
+            <div class="badge">应用场景</div>
+            <h2>适合谁使用？</h2>
+            <div class="accent-line"></div>
+            <ul class="feature-list">
+                <li><strong style="color: var(--accent-cyan);">创业者</strong> — 快速制作投资人路演 PPT</li>
+                <li><strong style="color: var(--accent-cyan);">产品经理</strong> — 高效输出产品方案演示</li>
+                <li><strong style="color: var(--accent-cyan);">学生/教师</strong> — 课程报告、学术汇报</li>
+                <li><strong style="color: var(--accent-cyan);">内容创作者</strong> — 将文章、脚本转为可视化演示</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Slide 7: CTA -->
+    <section class="slide" id="slide-6">
+        <div class="slide-number">07 / 07</div>
+        <div class="slide-content" style="text-align: center;">
+            <div class="badge">开始体验</div>
+            <h1 class="glow-text">让 AI 为你工作</h1>
+            <div class="accent-line" style="margin: 1.5rem auto;"></div>
+            <p style="max-width: 600px; margin-bottom: 2rem;">
+                这就是 AI 生成 PPT 的演示<br>
+                整个页面由 AI 自动生成，零人工设计
+            </p>
+            <div class="cta-button pulse">🐕 金毛管家制作</div>
+        </div>
+    </section>
+
+    <!-- Keyboard Hint -->
+    <div class="keyboard-hint">↑ ↓ 或 滚轮切换幻灯片</div>
+
+    <script>
+        // Generate particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (10 + Math.random() * 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Navigation
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.nav-dot');
+        let currentSlide = 0;
+
+        function goToSlide(index) {
+            if (index < 0 || index >= slides.length) return;
+            currentSlide = index;
+            slides[index].scrollIntoView({ behavior: 'smooth' });
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        // Dot click
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => goToSlide(index));
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                goToSlide(currentSlide + 1);
+            } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                e.preventDefault();
+                goToSlide(currentSlide - 1);
+            }
+        });
+
+        // Scroll spy
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const index = Array.from(slides).indexOf(entry.target);
+                    currentSlide = index;
+                    dots.forEach((dot, i) => {
+                        dot.classList.toggle('active', i === index);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        slides.forEach(slide => observer.observe(slide));
+    </script>
+</body>
+</html>
