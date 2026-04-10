@@ -1,9 +1,11 @@
 ---
-name: frontend-slides
-description: Create stunning, animation-rich HTML presentations from scratch or by converting PowerPoint files. Use when the user wants to build a presentation, convert a PPT/PPTX to web, or create slides for a talk/pitch. Helps non-designers discover their aesthetic through visual exploration rather than abstract choices.
+name: slide-craft
+description: Create stunning, animation-rich HTML presentations from scratch. Generates zero-dependency HTML slide decks that run entirely in the browser. Perfect for training, pitches, talks, and tutorials.
 ---
 
-# Frontend Slides
+# Slide Craft
+
+Craft beautiful, interactive HTML presentations with smooth animations and distinctive design.
 
 > **📎 案例展示：** [AI制作PPT实战培训](http://yourhelper.me/ai-ppt-workshop.html) — 12页专业商务风格演示文稿，包含完整培训内容、流畅动画和响应式设计。
 
@@ -101,10 +103,9 @@ These invariants apply to EVERY slide in EVERY presentation:
 Determine what the user wants:
 
 - **Mode A: New Presentation** — Create from scratch. Go to Phase 1.
-- **Mode B: PPT Conversion** — Convert a .pptx file. Go to Phase 4.
-- **Mode C: Enhancement** — Improve an existing HTML presentation. Read it, understand it, enhance. **Follow Mode C modification rules below.**
+- **Mode B: Enhancement** — Improve an existing HTML presentation. Read it, understand it, enhance. **Follow Mode B modification rules below.**
 
-### Mode C: Modification Rules
+### Mode B: Modification Rules
 
 When enhancing existing presentations, viewport fitting is the biggest risk:
 
@@ -118,7 +119,7 @@ When enhancing existing presentations, viewport fitting is the biggest risk:
 
 ---
 
-## Phase 1: Content Discovery (New Presentations)
+## Phase 1: Content Discovery
 
 **Ask ALL questions in a single AskUserQuestion call** so the user fills everything out at once:
 
@@ -226,18 +227,7 @@ If images were provided, the slide outline already incorporates them from Step 1
 
 ---
 
-## Phase 4: PPT Conversion
-
-When converting PowerPoint files:
-
-1. **Extract content** — Run `python scripts/extract-pptx.py <input.pptx> <output_dir>` (install python-pptx if needed: `pip install python-pptx`)
-2. **Confirm with user** — Present extracted slide titles, content summaries, and image counts
-3. **Style selection** — Proceed to Phase 2 for style discovery
-4. **Generate HTML** — Convert to chosen style, preserving all text, images (from assets/), slide order, and speaker notes (as HTML comments)
-
----
-
-## Phase 5: Delivery
+## Phase 4: Delivery
 
 1. **Clean up** — Delete `.claude-design/slide-previews/` if it exists
 2. **Open** — Use `open [filename].html` to launch in browser
@@ -249,20 +239,18 @@ When converting PowerPoint files:
 
 ---
 
-## Phase 6: Share & Export (Optional)
+## Phase 5: Share (Optional)
 
-After delivery, **ask the user:** _"Would you like to share this presentation? I can deploy it to a live URL (works on any device including phones) or export it as a PDF."_
+After delivery, **ask the user:** _"Would you like to deploy this presentation to a live URL? It works on any device including phones."_
 
 Options:
 
 - **Deploy to URL** — Shareable link that works on any device
-- **Export to PDF** — Universal file for email, Slack, print
-- **Both**
 - **No thanks**
 
-If the user declines, stop here. If they choose one or both, proceed below.
+If the user declines, stop here. If they choose to deploy, proceed below.
 
-### 6A: Deploy to a Live URL (Vercel)
+### Deploy to a Live URL (Vercel)
 
 This deploys the presentation to Vercel — a free hosting platform. The link works on any device (phones, tablets, laptops) and stays live until the user takes it down.
 
@@ -299,47 +287,6 @@ This deploys the presentation to Vercel — a free hosting platform. The link wo
 - **Filenames with spaces work but can cause issues.** The script handles spaces in filenames, but Vercel URLs encode spaces as `%20`. If possible, avoid spaces in image filenames. If the user's images have spaces, the script handles it — but if images still break, renaming files to use hyphens instead of spaces is the fix.
 - **Redeploying updates the same URL.** Running the deploy script again on the same presentation overwrites the previous deployment. The URL stays the same — no need to share a new link.
 
-### 6B: Export to PDF
-
-This captures each slide as a screenshot and combines them into a PDF. Perfect for email attachments, embedding in documents, or printing.
-
-**Note:** Animations and interactivity are not preserved — the PDF is a static snapshot. This is normal and expected; mention it to the user so they're not surprised.
-
-1. **Run the export script:**
-
-   ```bash
-   bash scripts/export-pdf.sh <path-to-html> [output.pdf]
-   ```
-
-   If no output path is given, the PDF is saved next to the HTML file.
-
-2. **What happens behind the scenes** (explain briefly to the user):
-   - A headless browser opens the presentation at 1920×1080 (standard widescreen)
-   - It screenshots each slide one by one
-   - All screenshots are combined into a single PDF
-   - The script needs Playwright (a browser automation tool) — it will install automatically if missing
-
-3. **If Playwright installation fails:**
-   - The most common issue is Chromium not downloading. Run: `npx playwright install chromium`
-   - If that fails too, it may be a network/firewall issue. Ask the user to try on a different network.
-
-4. **Deliver the PDF** — The script auto-opens it. Tell the user:
-   - The file location and size
-   - That it works everywhere — email, Slack, Notion, Google Docs, print
-   - Animations are replaced by their final visual state (still looks great, just static)
-
-**⚠ PDF export gotchas:**
-
-- **First run is slow.** The script installs Playwright and downloads a Chromium browser (~150MB) into a temp directory. This happens once per run. Warn the user it may take 30-60 seconds the first time — subsequent exports within the same session are faster.
-- **Slides must use `class="slide"`.** The export script finds slides by querying `.slide` elements. If the presentation uses a different class name, the script will report "0 slides found" and fail. All presentations generated by this skill use `.slide`, so this only matters for externally-created HTML.
-- **Local images must be loadable via HTTP.** The script starts a local server and loads the HTML through it (so Google Fonts and relative image paths work). If images use absolute filesystem paths (e.g., `src="/Users/name/photo.png"`) instead of relative paths (e.g., `src="photo.png"`), they won't load. Generated presentations always use relative paths, but converted or user-provided decks might not — check and fix if needed.
-- **Local images appear in the PDF** as long as they are in the same directory as (or relative to) the HTML file. The export script serves the HTML's parent directory over HTTP, so relative paths like `src="photo.png"` resolve correctly — including filenames with spaces. If images still don't appear, check: (1) the image files actually exist at the referenced path, (2) the paths are relative, not absolute filesystem paths like `/Users/name/photo.png`.
-- **Large presentations produce large PDFs.** Each slide is captured as a full 1920×1080 PNG screenshot. An 18-slide deck can produce a ~20MB PDF. If the PDF exceeds 10MB, ask the user: _"The PDF is [size]. Would you like me to compress it? It'll look slightly less sharp but the file will be much smaller."_ If yes, re-run the export with the `--compact` flag:
-  ```bash
-  bash scripts/export-pdf.sh <path-to-html> [output.pdf] --compact
-  ```
-  This renders at 1280×720 instead of 1920×1080, typically cutting file size by 50-70% with minimal visual difference.
-
 ---
 
 ## Supporting Files
@@ -350,6 +297,4 @@ This captures each slide as a screenshot and combines them into a PDF. Perfect f
 | [viewport-base.css](viewport-base.css)             | Mandatory responsive CSS — copy into every presentation              | Phase 3 (generation)      |
 | [html-template.md](html-template.md)               | HTML structure, JS features, code quality standards                  | Phase 3 (generation)      |
 | [animation-patterns.md](animation-patterns.md)     | CSS/JS animation snippets and effect-to-feeling guide                | Phase 3 (generation)      |
-| [scripts/extract-pptx.py](scripts/extract-pptx.py) | Python script for PPT content extraction                             | Phase 4 (conversion)      |
-| [scripts/deploy.sh](scripts/deploy.sh)             | Deploy slides to Vercel for instant sharing                          | Phase 6 (sharing)         |
-| [scripts/export-pdf.sh](scripts/export-pdf.sh)     | Export slides to PDF                                                 | Phase 6 (sharing)         |
+| [scripts/deploy.sh](scripts/deploy.sh)             | Deploy slides to Vercel for instant sharing                          | Phase 5 (sharing)         |
