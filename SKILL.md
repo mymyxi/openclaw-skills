@@ -7,18 +7,18 @@ description: Create stunning, animation-rich HTML presentations from scratch. Ge
 
 Craft beautiful, interactive HTML presentations with smooth animations and distinctive design.
 
-> **📎 案例展示：** [AI制作PPT实战培训](http://yourhelper.me/ai-ppt-workshop.html) — 12页专业商务风格演示文稿，包含完整培训内容、流畅动画和响应式设计。
+> **📎 案例展示：** [AI制作演示文稿实战培训](http://yourhelper.me/ai-ppt-workshop.html) — 12页专业商务风格HTML演示文稿，包含完整培训内容、流畅动画和响应式设计。
 
 ## 案例详情
 
-**案例名称：** AI制作PPT实战：40分钟从0到1  
+**案例名称：** AI制作演示文稿实战：40分钟从0到1  
 **在线预览：** http://yourhelper.me/ai-ppt-workshop.html  
 **风格：** 专业商务科技风（深蓝配色 + 渐变效果）  
 **页数：** 12页  
 **适用场景：** 培训/教学/Workshop  
 
 **内容结构：**
-1. 封面 - AI制作PPT实战
+1. 封面 - AI制作演示文稿实战
 2. 痛点引入与目标设定
 3. 黄金公式与工具
 4. 结构化四要素
