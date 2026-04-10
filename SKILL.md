@@ -127,7 +127,7 @@ When enhancing existing presentations, viewport fitting is the biggest risk:
 What is this presentation for? Options: Pitch deck / Teaching-Tutorial / Conference talk / Internal presentation
 
 **Question 2 — Length** (header: "Length"):
-Approximately how many slides? Options: Short 5-10 / Medium 10-20 / Long 20+
+Approximately how many slides? Options: Short 5-10 / Medium 10-20 / Long 20+ / Detailed (High-density content)
 
 **Question 3 — Content** (header: "Content"):
 Do you have content ready? Options: All content ready / Rough notes / Topic only
@@ -140,7 +140,32 @@ Do you need to edit text directly in the browser after generation? Options:
 
 **Remember the user's editing choice — it determines whether edit-related code is included in Phase 3.**
 
-If user has content, ask them to share it.
+### Detailed Version (High-density Content)
+
+If user selected **"Detailed (High-density content)"** in Question 2:
+
+1. **Acknowledge the choice** — "I'll create a detailed, information-rich presentation. To make it comprehensive, I need to gather more details about your topic."
+
+2. **Ask clarifying questions** — Use AskUserQuestion to collect detailed information:
+   - **Background context** — What should the audience know before this presentation?
+   - **Key data points** — Any specific statistics, metrics, or research findings to include?
+   - **Case studies/examples** — Real-world examples or success stories?
+   - **Common misconceptions** — What myths or misunderstandings should be addressed?
+   - **Actionable takeaways** — What should the audience do after seeing this presentation?
+   - **Supporting evidence** — Research papers, expert quotes, or authoritative sources?
+
+3. **Expand the outline** — Based on gathered details, create a comprehensive outline with:
+   - More subsections per main topic
+   - Data-driven content blocks
+   - Deep-dive sections for complex concepts
+   - Comparison tables or detailed lists
+   - Q&A or FAQ sections
+
+4. **Confirm before generating** — Present the expanded outline and ask: "This detailed outline includes [X] sections with high information density. Does this cover everything you need?" Options: Looks good / Add more details / Simplify some sections
+
+---
+
+If user has content (and NOT doing Detailed version), ask them to share it.
 
 ### Step 1.2: Image Evaluation (if images provided)
 
